@@ -2,7 +2,9 @@
 <launch>
     <arg name="front" default="true"/>  <!-- front detector enabled? -->
     <arg name="rear" default="true"/>   <!-- rear detector enabled? -->
-    
+    <arg name="front_scan_topic" default="/spencer/sensors/laser_front/echo0"/>
+    <arg name="rear_scan_topic" default="/spencer/sensors/laser_rear/echo0"/>
+
     <arg name="config_file" default="spencer2.yaml"/>
 
     <arg name="detection_id_increment" default="20"/>
@@ -15,7 +17,7 @@
     <group ns="/spencer/perception_internal/people_detection">
         <!-- Front -->
         <include file="$(find spencer_leg_detector_wrapper)/launch/leg_detector.launch" if="$(arg front)">
-            <arg name="scan" value="/spencer/sensors/laser_front/echo0"/>
+            <arg name="scan" value="$(arg front_scan_topic)"/>
             <arg name="node_prefix" value="$(arg node_prefix)_front"/>
             <arg name="detected_persons" value="/spencer/perception_internal/detected_persons/$(arg node_prefix)_front"/>
             <arg name="detection_id_increment" value="$(arg detection_id_increment)"/>
@@ -25,13 +27,13 @@
 
         <!-- Rear -->
         <include file="$(find spencer_leg_detector_wrapper)/launch/leg_detector.launch" if="$(arg rear)">
-            <arg name="scan" value="/spencer/sensors/laser_rear/echo0"/>
+            <arg name="scan" value="$(arg rear_scan_topic)"/>
             <arg name="node_prefix" value="$(arg node_prefix)_rear"/>
             <arg name="detected_persons" value="/spencer/perception_internal/detected_persons/$(arg node_prefix)_rear"/>
             <arg name="detection_id_increment" value="$(arg detection_id_increment)"/>
             <arg name="detection_id_offset" value="$(arg detection_id_offset_rear)"/>
             <arg name="config_file" value="$(arg config_file)"/>
-        </include> 
+        </include>
     </group>
 
 </launch>
