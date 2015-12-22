@@ -11,12 +11,12 @@ inc_height_ratio = 0.0
 region_size_threshold = 10
 
 #======================
-# Freespace 
+# Freespace
 #======================
 # parameteters for occupancy Map computation
 
 # these parameter define the number of bins for the occupancy histogram
-freespace_scaleZ = 20; 
+freespace_scaleZ = 20;
 freespace_scaleX = 20;
 
 freespace_minX = -3;
@@ -34,7 +34,7 @@ evaluation_NMS_threshold_LM = 0.25 # lowering this parameter will reduce the num
 evaluation_inc_height_ratio = 0.2  # parameter for increasing the size of ROI which is then scanned by the depth template
 
 # <<< these parameters are only relevant if you want to perform multi-scaling, evaluation_nr_scales > 1
-evaluation_stride = 3 
+evaluation_stride = 3
 evaluation_scale_stride = 1.03
 evaluation_nr_scales = 1
 evaluation_inc_cropped_height = 20
@@ -43,8 +43,10 @@ evaluation_greedy_NMS_threshold = 0.25
 # >>>
 
 # scanning corridor, which means for each ROI we scan it with the depth template starting from min_height (in meters) for up to max_height
-max_height = 2.1
-min_height = 1.0
+# max_height = 2.1
+# min_height = 1.0
+max_height = 2.6  # camera height 1.1 setup
+min_height = 1.5  # camera height 1.1 setup
 
 #======================
 # World scale
