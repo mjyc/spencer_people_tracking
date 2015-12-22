@@ -11,7 +11,7 @@
         <!-- RWTH fixed groundplane -->
         <node pkg="rwth_ground_plane" type="ground_plane_really_fixed" name="ground_plane_really_fixed" output="screen">
             <param name="ground_plane" value="/spencer/perception_internal/rwth_ground_plane"/>
-            <param name="camera_namespace" value="$(arg camera_namespace)"/>
+            <param name="camera_namespace" value="$(arg camera_namespace)/"/>
         </node>
 
         <!-- Front RGB-D upper body -->
