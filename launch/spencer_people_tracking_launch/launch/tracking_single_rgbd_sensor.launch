@@ -30,7 +30,7 @@
 
     <!-- Detectors -->
     <include file="$(find spencer_people_tracking_launch)/launch/detectors/front_rgbd_detectors.launch">
-        <arg name="camera_namespace" value="$(arg camera_group_ns)$(arg camera_name)"/>
+        <arg name="camera_namespace" value="$(arg camera_group_ns)/$(arg camera_name)"/>
     </include>
 
     <!-- People tracking -->
